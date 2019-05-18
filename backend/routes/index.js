@@ -12,7 +12,7 @@ router.get('/', (req, res, next) => {
 router.post('/signup', (req, res, next) => {
   User.register(req.body, req.body.password)
     .then(user => res.status(200).json(user))
-    .catch(error => res.status(500).json(err))
+    .catch(err => res.status(500).json(err))
 })
 
 router.post('/login', (req, res, next) => {
@@ -34,6 +34,12 @@ function isLogged(req, res, next) {
   if (!req.isAuthenticated()) return res.status(401).json({ msg: "You're not logged" })
   next()
 }
+
+
+router.get('/auth/logout', (req, res, next) => {
+  req.logout();
+  res.status(401).json({ msg: 'OK'})
+})
 
 
 
