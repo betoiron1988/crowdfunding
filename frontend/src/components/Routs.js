@@ -1,22 +1,29 @@
-import React from 'react'
-import {Route, Switch} from 'react-router-dom'
-import HomePage from './components/home/Home'
-import AllProyects from './components/projects/AllProyecs'
-import NewProyect from './components/projects/NewProyect'
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Home from "./components/homepage/index";
+import AllProject from "./components/views/AllProjects";
+import SingleProject from "./components/views/SingleProject";
+import NewProject from "./components/views/NewProject";
 
+import "./App.css";
 
+function App() {
+  return (
+    <div className="App">
+      <NavBar />
+      <Switch>
+        <Route exact path="/" component={() => <Home />} />
+        <Route exact path="/projects" component={() => <AllProject />} />
+        <Route
+          exact
+          path="/projects/:id"
+          component={props => <SingleProject {...props} />}
+        />
+        <Route exact path="/new-project" component={() => <NewProject/>} />
+      </Switch>
+    </div>
+  );
+}
 
-const Routes = () => (
-  
-  
-    <Switch>
-      <Route exact path = {'/'} component = {Home}/>
-      <Route exact path = {'/AllProjects'} component = {AllProyects}/>
-      <Route exact path = {'/NewProject'} component = {NewProyect}/>
-      <Route component = {() => <p> 404</p>}/>
-      
-    </Switch>
-  
-)
-
-export default Routes
+export default App;

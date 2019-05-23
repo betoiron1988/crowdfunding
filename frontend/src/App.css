@@ -23,6 +23,17 @@
   color: #61dafb;
 }
 
+.new-project h2{
+
+font-size: 200px;
+}
+
+.parrafo{
+padding-left: 30px;
+padding-right: 30px;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -31,3 +42,4 @@
     transform: rotate(360deg);
   }
 }
+

@@ -6,9 +6,9 @@ const Schema = mongoose. Schema;
 
 const userSchema = new mongoose.Schema({
 
-    proyects: {
+    projects: {
         type:Schema.Types.ObjectId, 
-        ref: 'proyects'
+        ref: 'projects'
     },
     name: String,
     email: String,

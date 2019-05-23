@@ -2,13 +2,15 @@ const mongoose= require('mongoose')
 const Schema = mongoose.Schema
 
 
-const proyectSchema= new mongoose.Schema({
+const projectSchema= new mongoose.Schema({
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'
       },
     name: String,
+    tagline:String,
     description:String,
+    contributor:String,
     montoInversion: Number,
     imageURL: String,
     
@@ -18,4 +20,4 @@ const proyectSchema= new mongoose.Schema({
     versionKey: false
 })
 
-module.exports= mongoose.model('Proyects',proyectSchema)
+module.exports= mongoose.model('Projects',projectSchema)
